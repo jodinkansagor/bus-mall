@@ -43,7 +43,7 @@
 ## Methods that will live on our class:
 
 1. getItems - simplifies our initial this. statement
-2. getItemsById - gets the specific image from the id we want from the array to display to the page.
+2. getItemById - gets the specific image from the id we want from the array to display to the page.
 3. getItemAtRandom - generates a random number and uses that number to find an item at that index in the array.
 4. increaseClick - increases the property "click" in the item object.
 5. increaseTimesShown - increases the property 'timesShown" on our item object.
