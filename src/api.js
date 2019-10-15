@@ -1,5 +1,4 @@
 export const productData = [
-
     {
         id: 'bag',
         name: 'Star Wars Themed Suitcase',
@@ -45,86 +44,85 @@ export const productData = [
     {
         id: 'chair',
         name: 'Modern Chair',
-        image: '../assets/chair.jpg',
+        img: '../assets/chair.jpg',
         clicks: 0,
         timesShown: 0
     },
     {
         id: 'cthulhu',
         name: 'Cthulhu Action Figure',
-        image: '../assets/cthulhu.jpg',
+        img: '../assets/cthulhu.jpg',
         clicks: 0,
         timesShown: 0
     },
     {
         id: 'dog-duck',
         name: 'Duck Beak Muzzle for Dog',
-        image: '../assets/dog-duck.jpg',
+        img: '../assets/dog-duck.jpg',
         clicks: 0,
         timesShown: 0
     },
     {
         id: 'dragon',
         name: 'Can of Dragon Meat',
-        image: '../assets/dragon.jpg',
+        img: '../assets/dragon.jpg',
         clicks: 0,
         timesShown: 0
     },
     {
         id: 'pen',
         name: 'Plastic Utencil Pen',
-        image: '../assets/pen.jpg',
+        img: '../assets/pen.jpg',
         clicks: 0,
         timesShown: 0
     },
     {
         id: 'scissors',
         name: 'Pizza Scissors',
-        image: '../assets/scissors.jpg',
+        img: '../assets/scissors.jpg',
         clicks: 0,
         timesShown: 0
     },
     {
         id: 'shark',
         name: 'Children\'s Shark Sleeping Bag',
-        image: '../assets/shark.jpg',
+        img: '../assets/shark.jpg',
         clicks: 0,
         timesShown: 0
     },
     {
         id: 'sweep',
         name: 'Baby Sweeping Onesie',
-        image: '../assets/sweep.jpg',
+        img: '../assets/sweep.png',
         clicks: 0,
         timesShown: 0
     },
     {
         id: 'tauntaun',
         name: 'Children\'s Tauntaun Sleeping Bag',
-        image: '../assets/tauntaun.jpg',
+        img: '../assets/tauntaun.jpg',
         clicks: 0,
         timesShown: 0
     },
     {
         id: 'usb',
         name: 'Tentacle USB',
-        image: '../assets/usb.jpg',
+        img: '../assets/usb.gif',
         clicks: 0,
         timesShown: 0
     },
     {
         id: 'water-can',
         name: 'World\'s Worst Watering Can',
-        image: '../assets/water-can.jpg',
+        img: '../assets/water-can.jpg',
         clicks: 0,
         timesShown: 0
     },
     {
-        id: 'unicowine-glass',
+        id: 'wine-glass',
         name: 'Wine Glass That Will Definitely Spill',
-        image: '../assets/wine-glass.jpg',
+        img: '../assets/wine-glass.jpg',
         clicks: 0,
         timesShown: 0
     },
-
 ];
