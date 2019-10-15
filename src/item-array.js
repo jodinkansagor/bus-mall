@@ -32,10 +32,20 @@ export class ItemArray {
     }
             
 //  5. increaseTimesShown - increases the property 'timesShown" on our item object.
-    increaseTimesShown(shownItems) {
-        shownItems.timesShown++;
-        return shownItems;
+    increaseTimesShown(shownItem) {
+        shownItem.timesShown++;
+        return shownItem;
     }
 }
+
+// 6. remove an item by it's id
+    removeItemById(someId) {
+        this.items.forEach(item => {
+            if (someId === item.id) {
+                this.items.splice(item, 1);
+            }
+        });
+    }
+
 
 
