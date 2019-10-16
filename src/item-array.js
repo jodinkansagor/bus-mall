@@ -9,9 +9,9 @@ export class ItemArray {
     }
 
     // 2. getItemsById - gets the specific image from the id we want from the array to display to the page and returns that item (the object).
-    getItemById(randomItemId) {
+    getItemById(randomItemId, itemArray) {
         let itemIsSame;
-        this.items.forEach(item => {    
+        itemArray.forEach(item => {    
             if (randomItemId === item.id) {
                 itemIsSame = item;
             }
@@ -26,26 +26,55 @@ export class ItemArray {
 
     // 4. increaseClick - increases the property "click" in the item object.
 
-    increaseClick(clickedItemObject) {
-        clickedItemObject.clicks++;
-        return clickedItemObject; 
+    increaseClick(clickedItem, clickedItemsArray) {
+        let chosenItemObject = this.getItemById(clickedItem, clickedItemsArray);
+
+        if (!chosenItemObject) {
+            chosenItemObject = {
+                id: clickedItem,
+                clicks: 1
+            };
+            clickedItemsArray.push(chosenItemObject);
+        } else {
+            chosenItemObject.clicks++;
+        }
+        console.log(chosenItemObject, 'increase click object');
     }
             
 //  5. increaseTimesShown - increases the property 'timesShown" on our item object.
-    increaseTimesShown(shownItem) {
-        shownItem.timesShown++;
-        return shownItem;
+    increaseTimesShown(shownItem, items) {
+        if (!shownItem) {
+            shownItem = {
+                id: shownItem.value,
+                name: shownItem.name,
+                img: shownItem.img,
+                timesShown: 1
+            };
+            items.push(shownItem);
+        } else {
+            shownItem.clicks++;
+        }
     }
-}
 
 // 6. remove an item by it's id
     removeItemById(someId) {
-        this.items.forEach(item => {
+        this.items.forEach((item, i) => {
             if (someId === item.id) {
-                this.items.splice(item, 1);
+                this.items.splice(i, 1);
             }
         });
     }
 
+}
 
 
+
+
+    // removeItemById(itemId) {
+    //     this.items.forEach((itemId, index) => {
+    //         if (itemId === item.id) {
+    //             this.items.splice(index, 1);
+    //         }
+    //         return;
+    //     });
+    // }

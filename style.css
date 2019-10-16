@@ -4,3 +4,7 @@ img {
     height: 100px;
 }
 
+canvas {
+    width: 75%;
+    height: 500px;
+}
