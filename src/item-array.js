@@ -65,15 +65,3 @@ export class ItemArray {
     }
 
 }
-
-
-
-
-    // removeItemById(itemId) {
-    //     this.items.forEach((itemId, index) => {
-    //         if (itemId === item.id) {
-    //             this.items.splice(index, 1);
-    //         }
-    //         return;
-    //     });
-    // }

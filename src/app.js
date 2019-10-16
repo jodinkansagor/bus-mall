@@ -6,20 +6,22 @@ const nodeListOfImgTags = document.querySelectorAll('img');
 const nodeListOfRadioTags = document.querySelectorAll('input');
 let items = new ItemArray(productData);
 
-let numberOfTrials = 1;
-let clickedItemsArray = [];
-let shownIemsArray = [];
+let numberOfTrials = 0;
+export let clickedItemsArray = [];
+export let shownItemsArray = [];
 
 nodeListOfRadioTags.forEach((radioTag) => {
     radioTag.addEventListener('click', (event) => {
+        
+        const chosenItem = event.target.value;
+        items.increaseClick(chosenItem, clickedItemsArray);
+        numberOfTrials++;
+        console.log(numberOfTrials);
+        initializeNewEventTrial();
         if (numberOfTrials === 25) {
             displayFinalResults();
             return;
         }
-        const chosenItem = event.target.value;
-        items.increaseClick(chosenItem, clickedItemsArray);
-        numberOfTrials++;
-        initializeNewEventTrial();
     });
 });
 
@@ -50,13 +52,13 @@ const initializeNewEventTrial = () => {
     nodeListOfRadioTags.forEach((radioTag, indexOfNodeList) => {
         if (indexOfNodeList === 0) {
             radioTag.value = randomItem1.id;
-            items.increaseTimesShown(randomItem1, shownIemsArray);
+            items.increaseTimesShown(randomItem1, shownItemsArray);
         } else if (indexOfNodeList === 1) {
             radioTag.value = randomItem2.id;
-            items.increaseTimesShown(randomItem2, shownIemsArray);
+            items.increaseTimesShown(randomItem2, shownItemsArray);
         } else if (indexOfNodeList === 2) {
             radioTag.value = randomItem3.id;
-            items.increaseTimesShown(randomItem3, shownIemsArray);
+            items.increaseTimesShown(randomItem3, shownItemsArray);
         }
     });
 
@@ -68,9 +70,10 @@ const initializeNewEventTrial = () => {
     items.removeItemById(randomItem3.id);
     usedItemsArray.push(randomItem1, randomItem2, randomItem3);
 
+    console.log(shownItemsArray);
     console.log(clickedItemsArray);
-    console.log(shownIemsArray);
 };
+
 
 
 initializeNewEventTrial();
