@@ -4,9 +4,9 @@ import { displayFinalResults } from './final-results.js';
 
 const nodeListOfImgTags = document.querySelectorAll('img');
 const nodeListOfRadioTags = document.querySelectorAll('input');
-const items = new ItemArray(productData);
+let items = new ItemArray(productData);
 
-let numberOfTrials = 0;
+let numberOfTrials = 1;
 let clickedItemsArray = [];
 let shownIemsArray = [];
 
@@ -16,34 +16,26 @@ nodeListOfRadioTags.forEach((radioTag) => {
             displayFinalResults();
             return;
         }
-        
-
         const chosenItem = event.target.value;
         items.increaseClick(chosenItem, clickedItemsArray);
         numberOfTrials++;
         initializeNewEventTrial();
-        // console.log(numberOfTrials, 'number of trials');
-
     });
 });
-// console.log(clickedItemsArray, 'clicked items array');
 
 const initializeNewEventTrial = () => {
-    
 
-    const randomItem1 = items.getItemAtRandom();
 
+    let randomItem1 = items.getItemAtRandom();
     let randomItem2 = items.getItemAtRandom();
 
     while (randomItem1.id === randomItem2.id) {
         randomItem2 = items.getItemAtRandom();
     }
-
     let randomItem3 = items.getItemAtRandom();
     while (randomItem3 === randomItem1 || randomItem3 === randomItem2) {
         randomItem3 = items.getItemAtRandom();
     }
-
 
     nodeListOfImgTags.forEach((imageTag, indexOfNodeList) => {
         if (indexOfNodeList === 0) {
@@ -68,18 +60,16 @@ const initializeNewEventTrial = () => {
         }
     });
 
-    let newItems = new ItemArray(productData);
+    items = new ItemArray(productData);
+    let usedItemsArray = [];
+    
+    items.removeItemById(randomItem1.id);
+    items.removeItemById(randomItem2.id);
+    items.removeItemById(randomItem3.id);
+    usedItemsArray.push(randomItem1, randomItem2, randomItem3);
 
-    nodeListOfRadioTags.forEach((radioTag) => {
-        if (radioTag.value === randomItem1.id) {
-            newItems.removeItemById(randomItem1.id);
-        } else if (radioTag.value === randomItem2.id) {
-            newItems.removeItemById(randomItem2.id);
-        } else if (radioTag.value === randomItem3.id) {
-            newItems.removeItemById(randomItem3.id);
-        
-        }
-    });
+    console.log(clickedItemsArray);
+    console.log(shownIemsArray);
 };
 
 

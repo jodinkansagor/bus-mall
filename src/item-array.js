@@ -53,7 +53,6 @@ export class ItemArray {
         } else {
             shownItemObject.timesShown++;
         }
-        console.log(shownItemsArray, 'shown item array');
     }
 
 // 6. remove an item by it's id

@@ -12,12 +12,16 @@ img {
     border-radius: 25px;;
 }
 
+img:hover {
+    transition:  
+}
+
 .product-section {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    text-align: center;
+    text-align: center; 
 }
 
 .header {
