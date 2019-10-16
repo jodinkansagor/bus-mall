@@ -17,67 +17,58 @@ test('does function return entire array of items', function(assert) {
     assert.deepEqual(itemsInArray, productData);
 });
 
-// test('gets the entire item object from the array by its id', function(assert) {
-//     //Arrange
-//     // Set up your parameters and expectations
-//     const items = new ItemArray(productData);
-//     const bananaObject = {
-//         id: 'banana',
-//         img: '../assets/banana.jpg',
-//         name: 'Banana Slicer',
-//     };
-//     const itemYouWantObject = items.getItemById('banana', itemArray);
+test('gets the entire item object from the array by its id', function(assert) {
+    //Arrange
+    // Set up your parameters and expectations
+    const items = new ItemArray(productData);
+    const itemYouWantObject = items.getItemById('banana', productData);
 
-//     //Act 
-//     // Call the function you're testing and set the result to a const
+    //Act 
+    // Call the function you're testing and set the result to a const
    
 
-//     //Assert
-//     // Make assertions about what is expected valid result
-//     assert.deepEqual(bananaObject, itemYouWantObject);
-// });
+    //Assert
+    // Make assertions about what is expected valid result
+    assert.deepEqual(itemYouWantObject, productData[1]);
+});
 
 
 test('increases value of click by one', function(assert) {
     //Arrange
     // Set up your parameters and expectations
     const items = new ItemArray(productData);
-    let clickedItemsArray = [{
-        id: 'banana',
-        clicks: 1
-    }];
+    let clickedItemArray = [];
     const oneMoreBanana = [{
         id: 'banana',
-        clicks: 2
+        clicks: 1
     }];
 
     //Act 
     // Call the function you're testing and set the result to a const
-    const bananaInClickedArray = items.increaseClick('banana', clickedItemsArray);
+    items.increaseClick('banana', clickedItemArray);
+    console.log(items);
+    console.log(clickedItemArray);
     //Assert
     // Make assertions about what is expected valid result
-    assert.deepEqual(bananaInClickedArray, oneMoreBanana);
+    assert.deepEqual(clickedItemArray, oneMoreBanana);
 });
 
 test('increases value of timesShown by one', function(assert) {
     //Arrange
     // Set up your parameters and expectations
     const items = new ItemArray(productData);
-    const oneMoreShark = {
-        clicks: 0,
+    let shownItemsArray = [];
+    const oneMoreShark = [{
         id: 'shark',
-        img: '../assets/shark.jpg',
-        name: 'Children\'s Shark Sleeping Bag',
         timesShown: 1
-    };
+    }];
 
     //Act 
     // Call the function you're testing and set the result to a const
-    const shark = items.getItemById('shark');
-    const sharkObject = items.increaseTimesShown(shark);
+    items.increaseTimesShown('shark', shownItemsArray);
     //Assert
     // Make assertions about what is expected valid result
-    assert.deepEqual(sharkObject, oneMoreShark);
+    assert.deepEqual(shownItemsArray, oneMoreShark);
 });
 
 test('remove item from array by the id', function(assert) {
@@ -173,7 +164,10 @@ test('remove item from array by the id', function(assert) {
     //Act 
     // Call the function you're testing and set the result to a const
     // const shark = items.getItemById('shark');
-    const sharkRemoved = items.removeItemById('shark');
+
+    items.removeItemById('shark');
+    const sharkRemoved = items.getItems();
+
     //Assert
     // Make assertions about what is expected valid result
     assert.deepEqual(sharkRemoved, oneLessShark);
