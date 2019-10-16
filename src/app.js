@@ -12,7 +12,7 @@ export let shownItemsArray = [];
 
 nodeListOfRadioTags.forEach((radioTag) => {
     radioTag.addEventListener('click', (event) => {
-        
+
         const chosenItem = event.target.value;
         items.increaseClick(chosenItem, clickedItemsArray);
         numberOfTrials++;

@@ -42,11 +42,11 @@ export class ItemArray {
             
 //  5. increaseTimesShown - increases the property 'timesShown" on our item object.
     increaseTimesShown(shownItem, shownItemsArray) {
-        let shownItemObject = this.getItemById(shownItem, shownItemsArray);
+        let shownItemObject = this.getItemById(shownItem.id, shownItemsArray);
 
         if (!shownItemObject) {
             shownItemObject = {
-                id: shownItem,
+                id: shownItem.id,
                 timesShown: 1
             };
             shownItemsArray.push(shownItemObject);
