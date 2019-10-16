@@ -1,5 +1,6 @@
 import { productData } from './api.js';
 import { ItemArray } from './item-array.js';
+import { displayFinalResults } from './final-results.js';
 
 const nodeListOfImgTags = document.querySelectorAll('img');
 const nodeListOfRadioTags = document.querySelectorAll('input');
@@ -7,19 +8,28 @@ const items = new ItemArray(productData);
 
 let numberOfTrials = 0;
 let clickedItemsArray = [];
+let shownIemsArray = [];
 
 nodeListOfRadioTags.forEach((radioTag) => {
     radioTag.addEventListener('click', (event) => {
+        if (numberOfTrials === 25) {
+            displayFinalResults();
+            return;
+        }
+        
+
         const chosenItem = event.target.value;
         items.increaseClick(chosenItem, clickedItemsArray);
+        numberOfTrials++;
         initializeNewEventTrial();
+        // console.log(numberOfTrials, 'number of trials');
+
     });
 });
-
-console.log(clickedItemsArray, 'clicked items array');
+// console.log(clickedItemsArray, 'clicked items array');
 
 const initializeNewEventTrial = () => {
-    numberOfTrials++;
+    
 
     const randomItem1 = items.getItemAtRandom();
 
@@ -34,9 +44,6 @@ const initializeNewEventTrial = () => {
         randomItem3 = items.getItemAtRandom();
     }
 
-    console.log(randomItem1.id);
-    console.log(randomItem2.id);
-    console.log(randomItem3.id);
 
     nodeListOfImgTags.forEach((imageTag, indexOfNodeList) => {
         if (indexOfNodeList === 0) {
@@ -51,13 +58,13 @@ const initializeNewEventTrial = () => {
     nodeListOfRadioTags.forEach((radioTag, indexOfNodeList) => {
         if (indexOfNodeList === 0) {
             radioTag.value = randomItem1.id;
-            items.increaseTimesShown(randomItem1);
+            items.increaseTimesShown(randomItem1, shownIemsArray);
         } else if (indexOfNodeList === 1) {
             radioTag.value = randomItem2.id;
-            items.increaseTimesShown(randomItem2);
+            items.increaseTimesShown(randomItem2, shownIemsArray);
         } else if (indexOfNodeList === 2) {
             radioTag.value = randomItem3.id;
-            items.increaseTimesShown(randomItem3);
+            items.increaseTimesShown(randomItem3, shownIemsArray);
         }
     });
 
@@ -70,7 +77,7 @@ const initializeNewEventTrial = () => {
             newItems.removeItemById(randomItem2.id);
         } else if (radioTag.value === randomItem3.id) {
             newItems.removeItemById(randomItem3.id);
-            console.log(newItems);
+        
         }
     });
 };

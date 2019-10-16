@@ -20,7 +20,7 @@ export class ItemArray {
     }
     // 3. getItemAtRandom - generates a random number and uses that number to find an item at that index in the array.
     getItemAtRandom() {
-        const randomItemIndex = Math.floor(Math.random() * (this.items.length - 1));
+        const randomItemIndex = Math.floor(Math.random() * this.items.length);
         return this.items[randomItemIndex];
     }
 
@@ -38,22 +38,22 @@ export class ItemArray {
         } else {
             chosenItemObject.clicks++;
         }
-        console.log(chosenItemObject, 'increase click object');
     }
             
 //  5. increaseTimesShown - increases the property 'timesShown" on our item object.
-    increaseTimesShown(shownItem, items) {
-        if (!shownItem) {
-            shownItem = {
-                id: shownItem.value,
-                name: shownItem.name,
-                img: shownItem.img,
+    increaseTimesShown(shownItem, shownItemsArray) {
+        let shownItemObject = this.getItemById(shownItem, shownItemsArray);
+
+        if (!shownItemObject) {
+            shownItemObject = {
+                id: shownItem,
                 timesShown: 1
             };
-            items.push(shownItem);
+            shownItemsArray.push(shownItemObject);
         } else {
-            shownItem.clicks++;
+            shownItemObject.timesShown++;
         }
+        console.log(shownItemsArray, 'shown item array');
     }
 
 // 6. remove an item by it's id

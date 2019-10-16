@@ -85,7 +85,7 @@ export const productData = [
         img: '../assets/water-can.jpg',
     },
     {
-        id: 'unicowine-glass',
+        id: 'wine-glass',
         name: 'Wine Glass That Will Definitely Spill',
         img: '../assets/wine-glass.jpg',
     },
