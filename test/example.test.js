@@ -65,7 +65,7 @@ test('increases value of timesShown by one', function(assert) {
 
     //Act 
     // Call the function you're testing and set the result to a const
-    items.increaseTimesShown('shark', shownItemsArray);
+    items.increaseTimesShown(productData[12], shownItemsArray);
     //Assert
     // Make assertions about what is expected valid result
     assert.deepEqual(shownItemsArray, oneMoreShark);
