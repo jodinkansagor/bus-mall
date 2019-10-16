@@ -53,7 +53,7 @@ export class ItemArray {
         } else {
             shownItemObject.timesShown++;
         }
-        console.log(shownItemsArray, 'shown item array');
+        // console.log(shownItemsArray, 'shown item array');
     }
 
 // 6. remove an item by it's id
@@ -64,17 +64,4 @@ export class ItemArray {
             }
         });
     }
-
 }
-
-
-
-
-    // removeItemById(itemId) {
-    //     this.items.forEach((itemId, index) => {
-    //         if (itemId === item.id) {
-    //             this.items.splice(index, 1);
-    //         }
-    //         return;
-    //     });
-    // }

@@ -5,7 +5,7 @@ body {
     align-items: center;
 }
 
-img {
+.product-section img {
     width: 300px;
     height: 300px;
     margin: 20px;
@@ -20,26 +20,30 @@ img {
     text-align: center;
 }
 
-.header {
+header {
     border-radius: 25px;
     background-color: lightgrey;
     width: 75%;
 
 }
 
-.header h1, h2 {
+header h1, h2 {
     text-align: center;
 
 }
 
-.header h1 {
+header h1 {
     color:red;
     font-size: 60px;
 }
 
-.header h2 {
+header h2 {
     margin-right: 50px;
     margin-left: 50px;
+}
+
+.hidden {
+    display: none;
 }
 
 input {

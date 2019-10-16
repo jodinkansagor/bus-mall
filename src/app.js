@@ -4,7 +4,7 @@ import { displayFinalResults } from './final-results.js';
 
 const nodeListOfImgTags = document.querySelectorAll('img');
 const nodeListOfRadioTags = document.querySelectorAll('input');
-const items = new ItemArray(productData);
+export const items = new ItemArray(productData);
 
 let numberOfTrials = 0;
 let clickedItemsArray = [];
@@ -12,27 +12,23 @@ let shownIemsArray = [];
 
 nodeListOfRadioTags.forEach((radioTag) => {
     radioTag.addEventListener('click', (event) => {
-        if (numberOfTrials === 25) {
+        if (numberOfTrials === 3) { 
             displayFinalResults();
             return;
         }
         
-
         const chosenItem = event.target.value;
         items.increaseClick(chosenItem, clickedItemsArray);
         numberOfTrials++;
         initializeNewEventTrial();
-        // console.log(numberOfTrials, 'number of trials');
-
+        return clickedItemsArray;
     });
 });
-// console.log(clickedItemsArray, 'clicked items array');
 
 const initializeNewEventTrial = () => {
     
 
     const randomItem1 = items.getItemAtRandom();
-
     let randomItem2 = items.getItemAtRandom();
 
     while (randomItem1.id === randomItem2.id) {
@@ -82,5 +78,5 @@ const initializeNewEventTrial = () => {
     });
 };
 
-
 initializeNewEventTrial();
+export const clickedItemsArrayForResults = clickedItemsArray;
